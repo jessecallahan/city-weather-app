@@ -18,7 +18,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
 
-      title: 'Ping Pong',
+      title: 'Weekday Calculator',
       template: './src/index.html',
       inject: 'body'
     })

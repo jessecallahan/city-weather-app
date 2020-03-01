@@ -1,31 +1,47 @@
-import { Triangle } from './../src/triangle.js'
+import { Date } from './../src/date.js'
 
-describe('Triangle', () => {
+describe('Date', () => {
 
-    test('should correctly create a triangle object with three lengths', () => {
-        var triangle = new Triangle(2,4,5);
-        expect(triangle.side1).toEqual(2);
-        expect(triangle.side2).toEqual(4);
-        expect(triangle.side3).toEqual(5);
+    test('should correctly create a date object with three properties', () => {
+        var date = new Date(1,3,20);
+        expect(date.day).toEqual(1);
+        expect(date.month).toEqual(3);
+        expect(date.year).toEqual(20);
     });
     
-    test('should correctly determine whether three lengths are not a triangle', () => {
-        var notTriangle = new Triangle(3,9,22);
-        expect(notTriangle.checkType()).toEqual("not a triangle");
-      });
+    test('should divide year by four', () => {
+      var date = new Date(1,3,20);
+      expect(date.StepTwo()).toEqual(5)
+    });
 
-    test('should correctly determine whether three lengths make a scalene triangle', function() {
-        var scalTriangle = new Triangle(4,5,7)
-        expect(scalTriangle.checkType()).toEqual("scalene triangle");
-      }); 
-      
-    test('should correctly determine whether three lengths make an isosceles triangle', () => {
-        var isocTriangle = new Triangle(5,5,7)
-        expect(isocTriangle.checkType()).toEqual("isosceles triangle");
-      });
+    test('should add value of month day to remainder', () => {
+      var date = new Date(1,3,20);
+      expect(date.StepThree()).toEqual(6);
+    });
 
-      test('should correctly determine whether three lengths make an equilateral triangle', () => {
-        var equiTriangle = new Triangle(5,5,5)
-        expect(equiTriangle.checkType()).toEqual("equilateral triangle");
-      });      
+    test('should get month key value', () => {
+      var date = new Date(1,3,20);
+      expect(date.GetKeyValue()).toEqual(4);
+    });
+
+    test('should add key value to last step', () => {
+      var date = new Date(1,3,20);
+      expect(date.StepFour()).toEqual(10);
+    });
+
+    test('should add century code to last step', () => {
+      var date = new Date(1,3,20);
+      expect(date.StepFive()).toEqual(16);
+    });
+
+    test('should add century code to last step', () => {
+      var date = new Date(1,3,20);
+      expect(date.StepSix()).toEqual(36);
+    });
+
+    test('should find the day of the week using modulo', () => {
+      var date = new Date(1,3,20);
+      expect(date.GetDay()).toEqual("Sunday");
+    });
+
 });
