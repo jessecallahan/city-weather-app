@@ -7,18 +7,15 @@ export class Date {
 
   StepTwo() {
     this.year /= 4;
-    Math.floor(this.year);
-    return this.year
+    return Math.floor(this.year)
   }
 
   StepThree() {
     this.StepTwo();
-    this.day += this.year;
+    this.day += Math.floor(this.year);
     return this.day;
 
   }
-
-
 
   GetKeyValue() {
     var keyValue;
@@ -64,10 +61,10 @@ export class Date {
   }
 
   StepSix() {
-    new Date(1, 2, 20);
+    new Date(1, 1, 22);
     let a = this.year;
-    let b = this.StepFive();
-    return a + b;
+    this.StepFive();
+    return a + this.day;
   }
 
   GetDay() {
