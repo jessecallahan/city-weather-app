@@ -61,10 +61,12 @@ export class Date {
   }
 
   StepSix() {
-    new Date(1, 1, 22);
     let a = this.year;
     this.StepFive();
-    return a + this.day;
+    console.log(a)
+    console.log(Math.floor(this.day))
+    return a + Math.floor(this.day);
+
   }
 
   GetDay() {
