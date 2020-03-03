@@ -1,4 +1,4 @@
-export class Date{
+export class Date {
   constructor(day, month, year) {
     this.day = day;
     this.month = month;
@@ -6,32 +6,36 @@ export class Date{
   }
 
   StepTwo() {
-    let result = this.year / 4;
-    return Math.floor(result);
+    this.year /= 4;
+    Math.floor(this.year);
+    return this.year
   }
 
   StepThree() {
-    let result = this.year / 4;
-    let stepTwoAnswer = result + this.day;
-    return stepTwoAnswer;
+    this.StepTwo();
+    this.day += this.year;
+    return this.day;
+
   }
-    
+
+
+
   GetKeyValue() {
     var keyValue;
     if (this.month === 1 || this.month === 10) {
       keyValue = 1;
     }
     if (this.month === 2 || this.month === 3 || this.month === 11) {
-     keyValue = 4;
+      keyValue = 4;
     }
     if (this.month === 4 || this.month === 7) {
-     keyValue = 0;
+      keyValue = 0;
     }
     if (this.month === 5) {
       keyValue = 2;
     }
     if (this.month === 6) {
-    keyValue = 5;
+      keyValue = 5;
     }
     if (this.month === 8) {
       keyValue = 3;
@@ -43,8 +47,10 @@ export class Date{
   }
 
   StepFour() {
-    let stepFourAnswer = stepTwoAnswer + keyValue;
-    return stepFourAnswer;
+    this.StepThree();
+    let a = this.GetKeyValue();
+    this.day += a;
+    return this.day;
   }
 
   LeapYear() {
@@ -52,22 +58,26 @@ export class Date{
   }
 
   StepFive() {
-    let stepFiveAnswer = stepFourAnswer + 6;
-    return stepFiveAnswer;
+    this.StepFour();
+    this.day += 6;
+    return this.day
   }
 
   StepSix() {
-    let stepSixAnswer = this.year + stepFiveAnswer;
-    return stepSixAnswer;
+    new Date(1, 2, 20);
+    let a = this.year;
+    let b = this.StepFive();
+    return a + b;
   }
 
   GetDay() {
-    let remainder = stepSixAnswer % 7;
-    if(remainder === 1) {
+    let a = this.StepSix();
+    let remainder = a % 7;
+    if (remainder === 1) {
       return "Sunday";
-    }  if (remainder === 2) {
+    } if (remainder === 2) {
       return "Monday";
-    }  if (remainder === 3) {
+    } if (remainder === 3) {
       return "Tuesday";
     } if (remainder === 4) {
       return "Wednesday";
