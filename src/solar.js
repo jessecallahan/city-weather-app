@@ -1,20 +1,25 @@
-export class Date {
-  constructor(day, month, year) {
-    this.day = day;
-    this.month = month;
-    this.year = year;
+export class Person {
+  constructor(age) {
+    this.age = age;
   }
 
-  StepTwo() {
-    this.year /= 4;
-    return Math.floor(this.year)
+  mercuryAge() {
+    this.age *= 100 / 24;
+    return this.age
   }
 
-  StepThree() {
-    this.StepTwo();
-    this.day += Math.floor(this.year);
-    return this.day;
+  venusAge() {
+    this.age *= 100 / 62;
+    return this.age
+  }
 
+  marsAge() {
+    this.age *= 1.88;
+    return this.age
+  }
+  jupiterAge() {
+    this.age *= 11.86;
+    return this.age
   }
 
   GetKeyValue() {
@@ -51,14 +56,14 @@ export class Date {
   }
 
   LeapYear() {
-    if (this.month === 1 || this.month === 2){
+    if (this.month === 1 || this.month === 2) {
       this.StepFour();
       return this.day - 1;
     }
-      else {
-        this.StepFour();
-        return this.day;
-      }
+    else {
+      this.StepFour();
+      return this.day;
+    }
 
   }
 

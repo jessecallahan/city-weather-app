@@ -1,48 +1,29 @@
-import { Date } from './../src/date.js'
+import { Person } from './../src/solar.js'
 
-describe('Date', () => {
-  var date;
+describe('Person', () => {
+  var person;
 
   beforeEach(() => {
-    date = new Date(1, 3, 20);
+    person = new Person(1);
   });
 
-  test('should correctly create a date object with three properties', () => {
-    expect(date.day).toEqual(1);
-    expect(date.month).toEqual(3);
-    expect(date.year).toEqual(20);
+  test('should correctly a person object with age', () => {
+    expect(person.age).toEqual(1);
   });
 
-  test('should divide year by four', () => {
-    expect(date.StepTwo()).toEqual(5)
+  test('should return person age in Mercury years', () => {
+    expect(person.mercuryAge()).toEqual(4.166666666666667)
   });
 
-  test('should add value of month day to remainder', () => {
-    expect(date.StepThree()).toEqual(6);
+  test('should return person age in Venus years', () => {
+    expect(person.venusAge()).toEqual(1.6129032258064515)
   });
 
-  test('should get month key value', () => {
-    expect(date.GetKeyValue()).toEqual(4);
+  test('should return person age in Mars years', () => {
+    expect(person.marsAge()).toEqual(1.88)
   });
 
-  test('should add key value to last step', () => {
-    expect(date.StepFour()).toEqual(10);
+  test('should return person age in Jupiter years', () => {
+    expect(person.jupiterAge()).toEqual(11.86)
   });
-
-  test('should subtract 1 from last step if date is jan and feb of a leap year', () => {
-    expect(date.LeapYear()).toEqual(10);
-  });
-
-  test('should add century code to last step', () => {
-    expect(date.StepFive()).toEqual(16);
-  });
-
-  test('should add century code to last step', () => {
-    expect(date.StepSix()).toEqual(36);
-  });
-
-  test('should find the day of the week using modulo', () => {
-    expect(date.GetDay()).toEqual("Sunday");
-  });
-
 });
