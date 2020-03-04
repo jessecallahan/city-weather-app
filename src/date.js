@@ -51,11 +51,20 @@ export class Date {
   }
 
   LeapYear() {
+    if (this.month === 1 || this.month === 2){
+      this.StepFour();
+      return this.day - 1;
+    }
+      else {
+        this.StepFour();
+        return this.day;
+      }
 
   }
 
+
   StepFive() {
-    this.StepFour();
+    this.LeapYear();
     this.day += 6;
     return this.day
   }
@@ -63,8 +72,6 @@ export class Date {
   StepSix() {
     let a = this.year;
     this.StepFive();
-    console.log(a)
-    console.log(Math.floor(this.day))
     return a + Math.floor(this.day);
 
   }

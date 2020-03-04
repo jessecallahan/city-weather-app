@@ -29,6 +29,10 @@ describe('Date', () => {
     expect(date.StepFour()).toEqual(10);
   });
 
+  test('should subtract 1 from last step if date is jan and feb of a leap year', () => {
+    expect(date.LeapYear()).toEqual(10);
+  });
+
   test('should add century code to last step', () => {
     expect(date.StepFive()).toEqual(16);
   });
