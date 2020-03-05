@@ -23,6 +23,7 @@ export class Person {
     return this.age
   }
   lifeExpectancy() {
+    let a = this.age - 82.3;
     if (this.age <= 83 && this.home === "UK") {
       return 80.96
     }
@@ -39,8 +40,7 @@ export class Person {
       return 82.3
     }
     else if (this.age >= 83 && this.home === "CAN") {
-      let a = this.age - 82.3
-      return $parseFloat((thsi.toFixed(1))
+      return parseFloat(a.toFixed(1));
     }
   }
 }
