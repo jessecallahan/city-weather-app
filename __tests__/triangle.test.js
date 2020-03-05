@@ -4,7 +4,7 @@ describe('Person', () => {
   var person;
 
   beforeEach(() => {
-    person = new Person(1);
+    person = new Person(84, "CAN");
   });
 
   test('should correctly a person object with age', () => {
@@ -26,4 +26,9 @@ describe('Person', () => {
   test('should return person age in Jupiter years', () => {
     expect(person.jupiterAge()).toEqual(11.86)
   });
+
+  test('should return person life expectancy based on where they live', () => {
+    expect(person.lifeExpectancy()).toEqual(1.70)
+  });
+
 });
