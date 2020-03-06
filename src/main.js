@@ -2,14 +2,14 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
-import { triangleTracker } from './triangle';
+import { solar } from './solar.js';
 
-$(document).ready(function() {
-  $('#ping-pong-form').submit(function(event) {
+$(document).ready(function () {
+  $('#solar-form').submit(function (event) {
     event.preventDefault();
-    var goal = $('#goal').val();
-    var output = triangleTracker(goal);
-    output.forEach(function(element) {
+    var goal = $('#age').val();
+    var output = solar(age);
+    output.forEach(function (element) {
       $('#solution').append("<li>" + element + "</li>");
     });
   });
