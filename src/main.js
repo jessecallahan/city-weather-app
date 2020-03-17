@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
 import './weatherinterface.js';
 
+
 $(document).ready(function () {
   $('#solar-form').submit(function (event) {
     event.preventDefault();
